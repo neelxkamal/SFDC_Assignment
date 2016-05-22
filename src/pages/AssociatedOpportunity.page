@@ -1,0 +1,20 @@
+<apex:page controller="OpportunityController" tabStyle="Account">
+    <apex:form >    
+    	<apex:pageBlock title="Get Associated Opportunity">
+            <apex:pageMessages />
+       		<apex:pageBlockSection columns="1">
+                <apex:inputText value="{! name }"/>
+	   		    <apex:commandButton action="{! getOpportunity }" value="Get Opportunity" />
+            </apex:pageBlockSection>
+		</apex:pageBlock>
+        
+        <apex:pageBlock title="Contacts">
+            <apex:pageBlockTable value="{!Oppr}" var="opp">
+              <apex:column value="{!opp.account.Name}"/>
+              <apex:column value="{!opp.name}"/>
+              <apex:column headerValue="Location" value="{!opp.account.billingstate}"/>
+              <apex:column headerValue="Price" value="{!opp.amount}"/>
+            </apex:pageBlockTable>
+    	</apex:pageBlock> 
+    </apex:form>
+</apex:page>
